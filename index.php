@@ -34,10 +34,9 @@ $offset=($page-1)*$limit;
             </button>
             <div class="collapse navbar-collapse " id="navbarNavDropdown">
                 <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-                <form class="d-flex" action="/elibrary/Search.php" name="addBook" method="GET">
+                <form class="d-flex" action="/elibrary/Search.php" method="GET">
                     <input type='hidden'  name='page' value=<?php echo $page; ?>>
-                    <input class="form-control  me-2" type="search" name="Search" placeholder="Search" aria-label="Search">
-                    
+                    <input class="form-control  me-2" type="search" name="Search" placeholder="Search" aria-label="Search" required>
                     <button class="btn btn-outline-success me-2" type="submit">Search</button>
                 </form>
                 <div >
@@ -53,8 +52,8 @@ $offset=($page-1)*$limit;
             Sort
         </button>
         <ul class="dropdown-menu " >
-            <li><a class="dropdown-item text-center" href="#">A-Z</a></li>
-            <li><a class="dropdown-item text-center" href="#">Z-A</a></li>
+            <li><a class="dropdown-item text-center" href="/elibrary/Sort.php?ord=ASC">A-Z</a></li>
+            <li><a class="dropdown-item text-center" href="/elibrary/Sort.php?ord=DESC">Z-A</a></li>
         </ul>
     </div>
   </div>
@@ -76,7 +75,6 @@ $offset=($page-1)*$limit;
                   <div class='card-body '>
                           <h5 class='card-title'>". $row['Name'] . "</h5>
                           <h5 class='card-author'>". $row['Author'] . "</h5>
-                          <p class='card-text'>". $row['Description'] . "</p>
                       </div>
                       <div class='card-footer bg-transparent border-dark'>
                           <div class='card-body'>
@@ -130,5 +128,6 @@ $offset=($page-1)*$limit;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
+     
 </body>
 </html>
