@@ -16,10 +16,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <title>Book Details</title>
+    <link rel = "icon" href = "/elibrary/img/logo.svg" type = "image/x-icon">
 </head>
 
 <body style="background-color: #dee2e6;">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="/elibrary/index.php">
                 <img src="img/logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top "
@@ -36,7 +37,7 @@
                 <button type="button" class="btn btn-outline-primary me-3"
                     onclick="window.location.href='/elibrary/Edit_Details.php?ISBN=<?php echo $data['ISBN']; ?>';">Edit details</button>
                 <button type="button" class="btn btn-outline-danger"
-                    onclick="window.location.href='/elibrary/index.php';">Delete</button>
+                    onclick="window.location.href='/elibrary/Delete_Book.php?ISBN=<?php echo $data['ISBN']; ?>';">Delete</button>
             </form>
         </div>
         </div>
