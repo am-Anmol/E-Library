@@ -48,13 +48,13 @@
     <div class="container mt-4 "  >
         <form action="/elibrary/Add_Book.php" name="addBook" onsubmit="return validateForm()" method="POST">
             <div class="form-group mb-3 " id="bname">
-                <label for="BookName" class="form-label">Enter Book Name</label>
+                <label for="BookName" class="form-label">Enter Book Name <b style="color:#dc3545;">*</b></label>
                 <input type="text" class="form-control" name="BookName" id="BookName" >
                 <strong><span class="formerror alert-danger" ></span></strong>
                 
             </div>
             <div class="form-group mb-3" id="Aname">
-                <label for="BookAuthor" class="form-label">Enter Book Author</label>
+                <label for="BookAuthor" class="form-label">Enter Book Author <b style="color:#dc3545;">*</b></label>
                 <input type="text" class="form-control"  name="BookAuthor" id="BookAuthor" >
                 <strong><span class="formerror alert-danger" ></span></strong>
             </div>
@@ -73,12 +73,13 @@
    
       
     <!-- Bootstrap Bundle with Popper -->
+    <script src="/elibrary/Form_Valid.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous">
     </script>
-    <script src="/elibrary/Form_Validate.js"></script>
-  
+    
+    
 
 </body>
 
