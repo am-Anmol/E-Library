@@ -17,14 +17,15 @@ $offset=($page-1)*$limit;
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <title>E-Library</title>
     <link rel = "icon" href = "/elibrary/img/logo.svg" type = "image/x-icon">
+    <link rel="stylesheet" href="/elibrary/style.css">
 </head>
-<body style="background-color: #dee2e6;">
 
-  
+
+<body style="background-color: #dee2e6;">  
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid">
+        <div class="container-fluid ">
             <a class="navbar-brand" href="/elibrary/index.php">
-                <img src="img/logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top"
+                <img src="img/logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top fs-4"
                     onclick="window.location.href='/index.php';">
                 E-Library
             </a>
@@ -33,19 +34,29 @@ $offset=($page-1)*$limit;
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNavDropdown">
-                <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-                <form class="d-flex" action="/elibrary/Search.php" method="GET">
-                    <input type='hidden'  name='page' value=<?php echo $page; ?>>
-                    <input class="form-control  me-2" type="search" name="Search" placeholder="Search" aria-label="Search" required>
-                    <button class="btn btn-outline-success me-2" type="submit">Search</button>
-                </form>
-                <div >
-                <button type="button" class="btn btn-outline-primary add-book"
+                <div class="navbar-nav me-auto mb-1 mb-lg-0"></div>
+                    <form class="d-flex " action="/elibrary/Search.php" method="GET">
+                        <input type='hidden'  name='page' value=<?php echo $page; ?>>
+                        <input class="form-control  me-2" type="search" name="Search" placeholder="Search" aria-label="Search" required>
+                        <button class="btn btn-outline-success me-2" type="submit">Search</button>       
+                    </form>
+                 <div class="nav">
+                    <button type="button" class="btn btn-outline-primary add-book"
                     onclick="window.location.href='/elibrary/Add_Book.php';">Add Book</button>
+                 </div>
                 </div>
-            </div>
+            </div>      
         </div>
     </nav>
+    
+    <?php
+    if(isset($_GET['msg'])) {
+    echo' <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+    <strong>'. $_GET['msg'] .'</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+    }
+    ?>
   <div class="container me-2 mt-2 d-flex justify-content-end "> 
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,7 +68,9 @@ $offset=($page-1)*$limit;
         </ul>
     </div>
   </div>
+  <br>
     
+
     <br>
      <div class="container ">
         <div class='row row-cols-1 row-cols-md-3 g-3 '>
@@ -88,7 +101,7 @@ $offset=($page-1)*$limit;
      ?>
         </div>
      </div>
-
+    <br>
     <nav aria-label="Page navigation example">
      <?php 
          
@@ -121,7 +134,7 @@ $offset=($page-1)*$limit;
 
   <footer class="footer mt-auto py-3 bg-light" style="text-align: center; " >
     <div class="container" >
-        <span class="text-right">&#169;Copyright ColoredCow 2021</span>
+        <span class="text-right">&#169;Copyright ANMOL GUPTA 2021</span>
     </div>
   </footer>
     <!-- Bootstrap Bundle with Popper -->
