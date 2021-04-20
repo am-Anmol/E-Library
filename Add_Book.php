@@ -9,7 +9,8 @@
         $BookDesc=$_POST['BookDesc'];
         $sql="INSERT INTO `books` (`Name`, `Author`, `Description`, `Cimage`) VALUES ('$BookName', '$BookAuthor','$BookDesc','$CoverImg')";
         $res=mysqli_query($conn,$sql);
-        header("Location: /elibrary/index.php");        
+        $msg="Book Added Successfully";
+        header("Location: /elibrary/index.php?msg=$msg");        
     }
    
     
@@ -69,8 +70,12 @@
             <button type="submit" class="btn btn-primary " >Submit</button>
         </form>
       </div>
-
-   
+      <br>
+      <footer class="footer mt-auto  py-3 bg-light" style="text-align: center; " >
+    <div class="container" >
+        <span class="text-right">&#169;Copyright ANMOL GUPTA 2021</span>
+    </div>
+  </footer>
       
     <!-- Bootstrap Bundle with Popper -->
     <script src="/elibrary/Form_Valid.js"></script>

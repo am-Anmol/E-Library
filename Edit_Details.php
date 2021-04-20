@@ -11,7 +11,14 @@
     <title>Edit Book</title>
     <link rel = "icon" href = "/elibrary/img/logo.svg" type = "image/x-icon">
 </head>
-
+<style>
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+</style>
 <body style="background-color: #dee2e6;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -70,7 +77,12 @@
     }
     ?>
       
-      
+      <br>
+      <footer class="footer mt-auto  py-3 bg-light" style="text-align: center;  " >
+    <div class="container" >
+        <span class="text-right">&#169;Copyright ANMOL GUPTA 2021</span>
+    </div>
+  </footer>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

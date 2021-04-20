@@ -36,12 +36,30 @@
             <form class="d-flex">
                 <button type="button" class="btn btn-outline-primary me-3"
                     onclick="window.location.href='/elibrary/Edit_Details.php?ISBN=<?php echo $data['ISBN']; ?>';">Edit details</button>
-                <button type="button" class="btn btn-outline-danger"
-                    onclick="window.location.href='/elibrary/Delete_Book.php?ISBN=<?php echo $data['ISBN']; ?>';">Delete</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </form>
         </div>
         </div>
     </nav>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you really want to delete this book
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" onclick="window.location.href='/elibrary/Delete_Book.php?ISBN=<?php echo $data['ISBN']; ?>';">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <?php
      if($res){
          echo " <div class='container mt-4 '>
@@ -63,7 +81,12 @@
       
       
     ?>
-    
+    <br>
+      <footer class="footer mt-auto  py-3 bg-light" style="text-align: center; " >
+    <div class="container" >
+        <span class="text-right">&#169;Copyright ANMOL GUPTA 2021</span>
+    </div>
+  </footer>
     
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

@@ -8,7 +8,9 @@ else{$page=1;}
 $offset=($page-1)*$limit;
 $sq="SELECT * FROM `books` WHERE ((Name LIKE '$Search%') OR (Author LIKE '$Search%') OR (Name LIKE '%$Search%') OR (Author LIKE '%$Search%')) LIMIT $offset,$limit";
 $r=mysqli_query($conn,$sq);
-$sr=mysqli_num_rows($r);
+$qu="SELECT * FROM `books` WHERE ((Name LIKE '$Search%') OR (Author LIKE '$Search%') OR (Name LIKE '%$Search%') OR (Author LIKE '%$Search%'))";
+$out=mysqli_query($conn,$qu);
+$sr=mysqli_num_rows($out);
 ?>
 
 
@@ -22,6 +24,7 @@ $sr=mysqli_num_rows($r);
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <title>Search Result</title>
     <link rel = "icon" href = "/elibrary/img/logo.svg" type = "image/x-icon">
+    <link rel="stylesheet" href="/elibrary/style.css">
 </head>
 <body style="background-color: #dee2e6;">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -42,7 +45,7 @@ $sr=mysqli_num_rows($r);
                     
                     <button class="btn btn-outline-success me-2" type="submit">Search</button>
                 </form>
-                <div >
+                <div class="nav">
                 <button type="button" class="btn btn-outline-primary add-book"
                     onclick="window.location.href='/elibrary/Add_Book.php';">Add Book</button>
                 </div>
@@ -117,7 +120,12 @@ $sr=mysqli_num_rows($r);
     ?>
   </nav>
 
-
+  </br> </br> 
+    <footer class="footer mt-auto  py-3 bg-light fixed-bottom" style="text-align: center; " >
+    <div class="container" >
+        <span class="text-right">&#169;Copyright ANMOL GUPTA 2021</span>
+    </div>
+  </footer>
 
 
 
