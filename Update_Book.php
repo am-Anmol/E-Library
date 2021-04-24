@@ -8,8 +8,5 @@
         $sql="UPDATE books SET Name='$BookName',Author= '$BookAuthor' , Description='$BookDesc' ,Cimage='$CoverImg' WHERE ISBN='$id'";
         $res=mysqli_query($conn,$sql);
         $msg="Book Edited Successfully";
-        header("Location: /elibrary/index.php?msg=$msg");
-    
-   
-    
+        header("Location: /elibrary/View_Book_Details.php?ISBN=$id&msg=$msg");    
 ?>

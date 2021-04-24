@@ -3,7 +3,6 @@ function seterror(id, err){
     element.getElementsByClassName('formerror')[0].innerHTML = err;
 
 }
-
 function validateForm(){
     var returnval = true;
     var Bname = document.forms['addBook']["BookName"].value;
