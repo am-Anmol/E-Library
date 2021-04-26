@@ -9,9 +9,9 @@ if($_GET['ord'])
 {$ord=$_GET['ord'];
 }
 if(strpos($ord, "ASC") !== false)
-{$act="A-Z";}
+{$act="Ascending";}
 else{
-    $act="Z-A";
+    $act="Descending";
 }
 ?>
 <!doctype html>
