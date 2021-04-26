@@ -4,18 +4,20 @@
    if ($_SERVER['REQUEST_METHOD'] == 'POST')
    {
        if (isset($_POST['submit'])){
-        $BookName=$_POST['BookName'];
-        $BookAuthor=$_POST['BookAuthor'];
-        $CoverImg=$_POST['CoverImg'];
-        $BookDesc=$_POST['BookDesc'];
-        $sql="INSERT INTO `books` (`Name`, `Author`, `Description`, `Cimage`) VALUES ('$BookName', '$BookAuthor','$BookDesc','$CoverImg')";
+        $bookName=$_POST['bookName'];
+        $bookAuthor=$_POST['bookAuthor'];
+        $pname = "images/".rand(1000,9999)."-".$_FILES["image"]["name"];
+        $tname = $_FILES["image"]["tmp_name"];
+        move_uploaded_file($tname, $pname);
+        $bookDesc=$_POST['bookDesc'];
+        $sql="INSERT INTO `books` (`Name`, `Author`, `Description`, `Cimage`) VALUES ('$bookName', '$bookAuthor','$bookDesc','$pname')";
         $res=mysqli_query($conn,$sql);
         $msg="Book Added Successfully";
         $flag=1;
         }
         if($flag==1)
     {   
-        $s="SELECT * FROM books WHERE Name='$BookName'";
+        $s="SELECT * FROM books WHERE Name='$bookName'";
         $r=mysqli_query($conn,$s);
         $data = mysqli_fetch_assoc($r);
         $ISBN=$data['ISBN'];
@@ -48,24 +50,24 @@
         </div>
     </nav>
     <div class="container mt-4 "  >
-        <form action="/elibrary/Add_Book.php" name="addBook" onsubmit="return validateForm()" method="POST">
+        <form action="/elibrary/Add_Book.php" name="addBook" onsubmit="return validateForm()" method="POST" enctype="multipart/form-data">
             <div class="form-group mb-3 " id="bname">
-                <label for="BookName" class="form-label">Enter Book Name <b style="color:#dc3545;">*</b></label>
-                <input type="text" class="form-control" name="BookName" id="BookName" >
+                <label for="bookName" class="form-label">Enter Book Name <b style="color:#dc3545;">*</b></label>
+                <input type="text" class="form-control" name="bookName" id="bookName" >
                 <strong><span class="formerror alert-danger" ></span></strong>                
             </div>
             <div class="form-group mb-3" id="Aname">
-                <label for="BookAuthor" class="form-label">Enter Book Author <b style="color:#dc3545;">*</b></label>
-                <input type="text" class="form-control"  name="BookAuthor" id="BookAuthor" >
+                <label for="bookAuthor" class="form-label">Enter Book Author <b style="color:#dc3545;">*</b></label>
+                <input type="text" class="form-control"  name="bookAuthor" id="bookAuthor" >
                 <strong><span class="formerror alert-danger" ></span></strong>
             </div>
             <div class="form-group mb-3">
                 <label for="CoverImg" class="form-label">Enter Book Cover Image</label>
-                <input type="text" class="form-control"  name="CoverImg" id="CoverImg">
+                <input type="file" class="form-control"  name="image" id="image">
             </div>
             <div class="form-group mb-3">
-                <label for="BookDesc" class="form-label">Enter Book Description</label>
-                <textarea class="form-control"  name="BookDesc" id="BookDesc" cols="30" rows="6"></textarea>
+                <label for="bookDesc" class="form-label">Enter Book Description</label>
+                <textarea class="form-control"  name="bookDesc" id="bookDesc" cols="30" rows="6"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" name="submit"  >Submit</button>
         </form>
