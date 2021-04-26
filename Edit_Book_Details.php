@@ -31,29 +31,31 @@
  include('config.php');
  $id = $_GET['ISBN'];
  $sql = "SELECT * FROM books WHERE ISBN=$id";
- $res=mysqli_query($conn,$sql);    
+ $res=mysqli_query($conn,$sql);
+    
   if(mysqli_num_rows($res)>0)
   {
     while($data = mysqli_fetch_assoc($res))
-    {
+    {      
 ?>
     <div class="container mt-4">
-        <form action="/elibrary/Update_Book.php?ISBN=<?php echo $id ?>" method="POST">
+        <form action="/elibrary/Update_Book.php?ISBN=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
             <div class="form-group mb-3 ">
-                <label for="BookName" class="form-label">Enter Book Name</label>
-                <input value="<?php echo $data['Name']; ?>" type="text" class="form-control" name="BookName" id="BookName" aria-describedby="emailHelp">
+                <label for="bookName" class="form-label">Enter Book Name</label>
+                <input value="<?php echo $data['Name']; ?>" type="text" class="form-control" name="bookName" id="bookName" aria-describedby="emailHelp">
             </div>
             <div class="form-group mb-3">
-                <label for="BookAuthor" class="form-label">Enter Book Author</label>
-                <input value="<?php echo $data['Author']; ?>" type="text" class="form-control"  name="BookAuthor" id="BookAuthor">
+                <label for="bookAuthor" class="form-label">Enter Book Author</label>
+                <input value="<?php echo $data['Author']; ?>" type="text" class="form-control"  name="bookAuthor" id="bookAuthor">
             </div>
             <div class="form-group mb-3">
-                <label for="CoverImg" class="form-label">Enter Book Cover Image</label>
-                <input value="<?php echo $data['Cimage']; ?>" type="text" class="form-control"  name="CoverImg" id="CoverImg">
+                <label for="image" class="form-label">Enter Book Cover Image</label>
+                <input  type="file" class="form-control"  name="image" id="image">
+                <spam> <p><?php echo substr($data['Cimage'],12); ?></p> </spam>
             </div>
             <div class="form-group mb-3">
-                <label for="BookDesc" class="form-label">Enter Book Description</label>
-                <textarea  type="text" class="form-control"  name="BookDesc" id="BookDesc" cols="30" rows="6"><?php echo $data['Description']; ?></textarea>
+                <label for="bookDesc" class="form-label">Enter Book Description</label>
+                <textarea  type="text" class="form-control"  name="bookDesc" id="bookDesc" cols="30" rows="6"><?php echo $data['Description']; ?></textarea>
             </div>
             <button type="submit" name="Update" value="Update" class="btn btn-primary ">Update</button>
         </form>
