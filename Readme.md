@@ -1,5 +1,5 @@
 # Project-eLibrary
-e-Library Management System is a system that maintains the information about the books present in the library, their authors, the members of the library to whom books are issued, library staff, and users.
+e-Library Management System is a system that maintains the information about the books present in the library, their authors, the members of the library to whom books are issued, library staff, and users
 
 ## Sources-
 1. [Wireframe Design](https://whimsical.com/preparatory-2-RzZef8wiGYsKwhihQG5Biv)
